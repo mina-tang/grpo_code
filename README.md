@@ -1,6 +1,6 @@
 
 > [!NOTE] 
-> Check out our [blog-post](https://axolotlai.substack.com/p/training-llms-w-interpreter-feedback-wasm) for more detail and benchmarks!
+> Check out our [blog-post](https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm) for more detail and benchmarks!
 
 ## Installation
 
