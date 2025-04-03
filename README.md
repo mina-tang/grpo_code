@@ -1,10 +1,14 @@
+
+> [!NOTE] 
+> Check out our [blog-post](https://axolotlai.substack.com/p/training-llms-w-interpreter-feedback-wasm) for more detail and benchmarks!
+
 ## Installation
 
 ```bash
 git clone https://github.com/axolotl-ai-cloud/grpo_code.git
 cd grpo_code
 pip install -e .
-pip install axolotl==0.8.0[vllm]
+pip install axolotl==0.8.0[vllm,flash-attn]
 ```
 
 ## Training
