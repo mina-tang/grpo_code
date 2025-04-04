@@ -17,7 +17,7 @@ The following environment variables can be used to modify the behaviour of the r
 - `WASM_FUEL` - Controls the amount of fuel (computation resources) allocated to the WASM environment (default: 10000000000)
 - `WASM_PATH` - Path to the Python WASM runtime file (default: "./wasm/python-3.12.0.wasm")
 - `TIMEOUT` - Maximum execution time in seconds for code evaluation (default: 1)
-- `MAX_WORKERS` - Number of parallel workers for multiprocessing reward functions (default: 4)
+- `MAX_WORKERS` - Number of parallel workers for multiprocessing reward functions (default: 1)
 
 First, spin up a `vLLM` instance:
 
@@ -31,7 +31,7 @@ Then, in another terminal, kick off the training process:
 CUDA_VISIBLE_DEVICES=0,1 MAX_WORKERS=64 axolotl train r1_acecode.yaml --num-processes 2
 ```
 
-This example uses 4 A100 GPUs - adjust `CUDA_VISIBLE_DEVICES` and `MAX_WORKERS`, and `cfg.batch_size` as necessary to match your hardware.
+This example uses 4 A100 GPUs - adjust `CUDA_VISIBLE_DEVICES`, `MAX_WORKERS`, `cfg.micro_batch_size` and `cfg.gradient_accumulation_steps` as necessary to match your hardware.
 
 ## Python WASM Runtime
 
