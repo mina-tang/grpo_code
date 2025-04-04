@@ -19,5 +19,5 @@ pip install -r requirements.txt
 We utilize 8xA100 GPUs for this benchmark. The following scripts are used to run the inference and evaluations:
 
 ```bash
-bash test.sh
+bash test.sh {path_to_your_local_model_checkpoint} {tensor_parallel_size} {output_dir}
 ```
