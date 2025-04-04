@@ -7,7 +7,7 @@ import grpo_code
 from grpo_code.executor import execute_tasks
 
 WORLD_SIZE = int(os.environ.get("WORLD_SIZE", 1))
-MAX_PROCESSES = max(1, int(os.environ.get("MAX_PROCESSES", 1)) // WORLD_SIZE)
+MAX_WORKERS = max(1, int(os.environ.get("MAX_WORKERS", 1)) // WORLD_SIZE)
 TASK_TIMEOUT = int(os.environ.get("TASK_TIMEOUT", 1))
 WASM_PATH = os.environ.get(
     "WASM_PATH", Path(grpo_code.__file__).parent.parent / "wasm" / "python-3.12.0.wasm"
@@ -50,7 +50,7 @@ def code_execution_reward_func(completions: list[list[dict]], **kwargs) -> list[
         extract_xml_answer(completion[0]["content"]) for completion in completions
     ]
     task_results = execute_tasks(
-        model_answers, MAX_PROCESSES, WASM_PATH, FUEL, TASK_TIMEOUT
+        model_answers, MAX_WORKERS, WASM_PATH, FUEL, TASK_TIMEOUT
     )
     return [0.5 if result == 1.0 else -0.25 for result in task_results]
 
@@ -90,7 +90,7 @@ def answer_execution_reward_func(
             tasks.append(code + "\n" + test)
             test_indices.append(i)
 
-    task_results = execute_tasks(tasks, MAX_PROCESSES, WASM_PATH, FUEL, TASK_TIMEOUT)
+    task_results = execute_tasks(tasks, MAX_WORKERS, WASM_PATH, FUEL, TASK_TIMEOUT)
 
     completion_results = {}
     for idx, result in zip(test_indices, task_results):
