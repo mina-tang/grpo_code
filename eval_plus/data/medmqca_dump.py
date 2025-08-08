@@ -3,7 +3,7 @@ import json
 # For MCQ
 SYSTEM_PROMPT = """You can add explanations or comments before or after, \
 but the text inside the <answer> tags must contain only the final MCQ answer exactly \
-as one of the provided options (e.g., "d) Roux en Y Duodenal By pass"). \
+as one of the provided options (e.g., 'd) Roux en Y Duodenal By pass'). \
 For example:  \
 Here is my reasoning... <answer> d) Roux en Y Duodenal By pass <answer> \
 Do not include anything else inside the <answer> tags. \
